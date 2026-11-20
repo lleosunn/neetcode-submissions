@@ -1,0 +1,15 @@
+class Solution:
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        # numbers in increasing order (with repeats)
+        # walk up with the smallest increase
+        i = 0
+        j = len(numbers)
+        while True:
+            if numbers[i] + numbers[j] == target:
+                return [i + 1, j + 1]
+            elif numbers[i] + numbers[j - 1] - target > target - numbers[j] - numbers[i + 1]:
+                i += 1
+            else:
+                j += 1
+            
+        
